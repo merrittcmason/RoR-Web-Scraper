@@ -23,7 +23,7 @@ A simple Ruby on Rails app for monitoring product stock status on retail website
 - Rails 8.0.2
 - Ferrum
 - SQLite or PostgreSQL
-- asic inline CSS (easily swapped out for Tailwind, Bootstrap, etc.)
+- Tailwind CSS
 
 
 ## Usage
