@@ -1,24 +1,44 @@
-# README
+# Stock Checker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple Ruby on Rails app for monitoring product stock status on retail websites like Best Buy. It uses a headless browser to evaluate product availability with real-time checks and a clean interface to manage your tracked products.
 
-Things you may want to cover:
+## Features
+- Track multiple product URLs with custom settings
+- Choose between:
+  - `Text Match` (check if certain text appears on the page)
+  - `Element Exists` (check if a selector exists)
+  - `Element Not Exists` (check if a selector is missing)
+- Uses `Ferrum` (headless Chrome driver) for accurate, JavaScript-enabled scraping
+- Clean UI for:
+  - Adding new products
+  - Viewing live check results
+  - Editing tracking rules
+  - Deleting products
+- Built-in status checks show real-time results (✅ / ❌)
+  
+## Tech Stack
+- Ruby 3.4.4
+- Rails 8.0.2
+- Ferrum
+- SQLite or PostgreSQL
+- asic inline CSS (easily swapped out for Tailwind, Bootstrap, etc.)
 
-* Ruby version
 
-* System dependencies
+## Usage
+- Click “Add New Product”
+- Enter:
+- A product name (e.g. “Nintendo Switch 2”)
+- Product URL
+- Check type (text, exists, not_exists)
+- CSS selector
+- Text to match (if check type is text)
+- View your tracked products on the homepage
+- Click a product to view results
+- Click “Edit” to change selector or match settings
+- Use the “Run Stock Check Now” button to recheck
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Future Improvements
+- Add email/SMS/Discord alerts
+- Schedule checks using background jobs (Sidekiq or ActiveJob + cron)
+- Add user accounts for multi-user tracking
+- Replace inline CSS with a full frontend framework
