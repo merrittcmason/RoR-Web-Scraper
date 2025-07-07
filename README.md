@@ -4,6 +4,7 @@ A simple Ruby on Rails app for monitoring product stock status on retail website
 
 ---
 <img width="857" alt="Screenshot 2025-07-07 at 12 52 36 AM" src="https://github.com/user-attachments/assets/1775a828-154b-4235-aa99-8b19a4ae8573" />
+
 ---
 
 ## Features
@@ -29,6 +30,7 @@ A simple Ruby on Rails app for monitoring product stock status on retail website
 
 ---
 <img width="1271" alt="Screenshot 2025-07-07 at 1 15 44 AM" src="https://github.com/user-attachments/assets/40d488b2-2381-4e96-9fcd-51d9236aa527" />
+
 ---
 
 ## Usage
