@@ -1,4 +1,4 @@
-# RoB Web Scraper
+# RoR Web Scraper
 
 A simple Ruby on Rails app for monitoring product stock status on retail websites like Best Buy. It uses a headless browser to evaluate product availability with real-time checks and a clean interface to manage your tracked products. Example code is setup to track the 'Nintendo Switch 2' on BestBuy
 
