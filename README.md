@@ -44,5 +44,3 @@ A simple Ruby on Rails app for monitoring product stock status on retail website
 ## Future Improvements
 - Add email/SMS/Discord alerts
 - Schedule checks using background jobs (Sidekiq or ActiveJob + cron)
-- Add user accounts for multi-user tracking
-- Replace inline CSS with a full frontend framework
