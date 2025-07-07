@@ -1,28 +1,34 @@
-<h1>Tracking Product</h1>
+<h1 class="text-4xl font-bold mb-6">Stock Checker</h1>
 
-<p><strong>Name:</strong> <%= @page.name %></p>
-<p><strong>URL:</strong> <%= link_to @page.url, @page.url, target: "_blank" %></p>
-<p><strong>Check Type:</strong> <%= @page.check_type %></p>
-<p><strong>CSS Selector:</strong> <%= @page.selector %></p>
-<p><strong>Text to Match:</strong> <%= @page.match_text.presence || "N/A" %></p>
+<h2 class="text-2xl font-semibold mb-6"><%= @page.name.presence || "Tracked Product" %></h2>
 
-<%= button_to "Run Stock Check Now", page_checks_path(@page), method: :post %>
+<div class="space-y-4 mb-6">
+  <p><strong>URL:</strong> <%= link_to @page.url, @page.url, target: "_blank", class: "text-blue-600 underline" %></p>
+  <p><strong>Check Type:</strong> <%= @page.check_type %></p>
+  <p><strong>Selector:</strong> <%= @page.selector %></p>
+  <p><strong>Text to Match:</strong> <%= @page.match_text.presence || "N/A" %></p>
+</div>
 
-<hr>
+<div class="mb-8">
+  <%= button_to "Run Stock Check Now", page_checks_path(@page), method: :post, class: "bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded" %>
+</div>
 
-<h2>Results</h2>
+<h3 class="text-xl font-semibold mb-3">Check History</h3>
+
 <% if @page.results.any? %>
-  <% @page.results.order(created_at: :desc).each do |result| %>
-    <div style="margin-bottom: 10px;">
-      <strong><%= result.success? ? "✅ In Stock" : "❌ Sold Out" %></strong><br>
-      <small><%= result.created_at.strftime("%Y-%m-%d %I:%M %p") %></small>
-    </div>
-  <% end %>
+  <div class="space-y-3">
+    <% @page.results.order(created_at: :desc).each do |result| %>
+      <div class="border rounded px-4 py-2 flex items-center justify-between">
+        <span class="text-lg"><%= result.success? ? "✅ In Stock" : "❌ Sold Out" %></span>
+        <small class="text-gray-500"><%= result.created_at.strftime("%Y-%m-%d %I:%M %p") %></small>
+      </div>
+    <% end %>
+  </div>
 <% else %>
-  <p>No results yet. Click the button above to run your first check.</p>
+  <p class="text-gray-500">No results yet. Click the button above to run your first check.</p>
 <% end %>
 
-<hr>
-
-<%= link_to "Back", pages_path %> |
-<%= link_to "Edit", edit_page_path(@page) %>
+<div class="flex space-x-3 mt-10">
+  <%= link_to "Back to List", pages_path, class: "bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded" %>
+  <%= link_to "Edit Product", edit_page_path(@page), class: "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded" %>
+</div>

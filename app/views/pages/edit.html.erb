@@ -1,45 +1,33 @@
-<h1>Editing Product</h1>
+<h2 class="text-2xl font-semibold mb-6">Edit Tracked Product</h2>
 
 <%= form_with model: @page, local: true do |form| %>
-  <% if @page.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
-      <ul>
-        <% @page.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, "Product Name" %><br>
-    <%= form.text_field :name %>
+  <div class="mb-4">
+    <%= form.label :name, "Product Name", class: "block font-medium mb-1" %>
+    <%= form.text_field :name, class: "w-full border border-gray-300 rounded px-3 py-2" %>
   </div>
 
-  <div>
-    <%= form.label :url, "Product URL" %><br>
-    <%= form.text_field :url %>
+  <div class="mb-4">
+    <%= form.label :url, "Product URL", class: "block font-medium mb-1" %>
+    <%= form.text_field :url, class: "w-full border border-gray-300 rounded px-3 py-2" %>
   </div>
 
-  <div>
-    <%= form.label :check_type, "Check Type" %><br>
-    <%= form.select :check_type, options_for_select(["text", "exists", "not_exists"], selected: @page.check_type) %>
+  <div class="mb-4">
+    <%= form.label :check_type, "Check Type", class: "block font-medium mb-1" %>
+    <%= form.select :check_type, [["Text Match", "text"], ["Element Exists", "exists"], ["Element Not Exists", "not_exists"]], {}, class: "w-full border border-gray-300 rounded px-3 py-2" %>
   </div>
 
-  <div>
-    <%= form.label :selector, "CSS Selector" %><br>
-    <%= form.text_field :selector %>
+  <div class="mb-4">
+    <%= form.label :selector, "Selector", class: "block font-medium mb-1" %>
+    <%= form.text_field :selector, class: "w-full border border-gray-300 rounded px-3 py-2" %>
   </div>
 
-  <div>
-    <%= form.label :match_text, "Text to Match (Only for 'text' check)" %><br>
-    <%= form.text_field :match_text %>
+  <div class="mb-4">
+    <%= form.label :match_text, "Text to Match (for 'Text Match' only)", class: "block font-medium mb-1" %>
+    <%= form.text_field :match_text, class: "w-full border border-gray-300 rounded px-3 py-2" %>
   </div>
 
-  <div>
-    <%= form.submit "Update Product" %>
+  <div class="flex space-x-3 mt-6">
+    <%= form.submit "Update Product", class: "bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded" %>
+    <%= link_to "Back", page_path(@page), class: "bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded" %>
   </div>
 <% end %>
-
-<%= link_to "Back", page_path(@page) %>
