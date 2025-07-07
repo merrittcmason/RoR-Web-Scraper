@@ -25,6 +25,8 @@ A simple Ruby on Rails app for monitoring product stock status on retail website
 - SQLite or PostgreSQL
 - Tailwind CSS
 
+<img width="1271" alt="Screenshot 2025-07-07 at 1 15 44 AM" src="https://github.com/user-attachments/assets/40d488b2-2381-4e96-9fcd-51d9236aa527" />
+
 
 ## Usage
 - Click “Add New Product”
