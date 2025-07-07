@@ -2,7 +2,9 @@
 
 A simple Ruby on Rails app for monitoring product stock status on retail websites like Best Buy. It uses a headless browser to evaluate product availability with real-time checks and a clean interface to manage your tracked products. Example code is setup to track the 'Nintendo Switch 2' on BestBuy
 
+---
 <img width="857" alt="Screenshot 2025-07-07 at 12 52 36 AM" src="https://github.com/user-attachments/assets/1775a828-154b-4235-aa99-8b19a4ae8573" />
+---
 
 ## Features
 - Track multiple product URLs with custom settings
@@ -25,8 +27,9 @@ A simple Ruby on Rails app for monitoring product stock status on retail website
 - SQLite or PostgreSQL
 - Tailwind CSS
 
+---
 <img width="1271" alt="Screenshot 2025-07-07 at 1 15 44 AM" src="https://github.com/user-attachments/assets/40d488b2-2381-4e96-9fcd-51d9236aa527" />
-
+---
 
 ## Usage
 - Click “Add New Product”
