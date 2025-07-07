@@ -1,0 +1,45 @@
+<h1>Editing Product</h1>
+
+<%= form_with model: @page, local: true do |form| %>
+  <% if @page.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+      <ul>
+        <% @page.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, "Product Name" %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :url, "Product URL" %><br>
+    <%= form.text_field :url %>
+  </div>
+
+  <div>
+    <%= form.label :check_type, "Check Type" %><br>
+    <%= form.select :check_type, options_for_select(["text", "exists", "not_exists"], selected: @page.check_type) %>
+  </div>
+
+  <div>
+    <%= form.label :selector, "CSS Selector" %><br>
+    <%= form.text_field :selector %>
+  </div>
+
+  <div>
+    <%= form.label :match_text, "Text to Match (Only for 'text' check)" %><br>
+    <%= form.text_field :match_text %>
+  </div>
+
+  <div>
+    <%= form.submit "Update Product" %>
+  </div>
+<% end %>
+
+<%= link_to "Back", page_path(@page) %>

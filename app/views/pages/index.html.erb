@@ -1,0 +1,14 @@
+<h1>Tracked Products</h1>
+
+<% @pages.each do |page| %>
+  <div style="margin-bottom: 2rem; border-bottom: 1px solid #ccc; padding-bottom: 1rem;">
+    <h2><%= link_to page.name, page_path(page) %></h2>
+    <p><strong>Check Type:</strong> <%= page.check_type %></p>
+    <p><strong>Selector:</strong> <%= page.selector %></p>
+    <p><strong>Match Text:</strong> <%= page.match_text.presence || "N/A" %></p>
+    <%= link_to "Edit", edit_page_path(page), style: "margin-right: 1rem;" %>
+    <%= link_to "Delete", page_path(page), method: :delete, data: { confirm: "Are you sure?" } %>
+  </div>
+<% end %>
+
+<%= link_to "Add New Product", new_page_path, style: "font-size: 1.2rem; font-weight: bold;" %>

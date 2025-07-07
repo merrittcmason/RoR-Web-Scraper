@@ -1,0 +1,28 @@
+<h1>Tracking Product</h1>
+
+<p><strong>Name:</strong> <%= @page.name %></p>
+<p><strong>URL:</strong> <%= link_to @page.url, @page.url, target: "_blank" %></p>
+<p><strong>Check Type:</strong> <%= @page.check_type %></p>
+<p><strong>CSS Selector:</strong> <%= @page.selector %></p>
+<p><strong>Text to Match:</strong> <%= @page.match_text.presence || "N/A" %></p>
+
+<%= button_to "Run Stock Check Now", page_checks_path(@page), method: :post %>
+
+<hr>
+
+<h2>Results</h2>
+<% if @page.results.any? %>
+  <% @page.results.order(created_at: :desc).each do |result| %>
+    <div style="margin-bottom: 10px;">
+      <strong><%= result.success? ? "✅ In Stock" : "❌ Sold Out" %></strong><br>
+      <small><%= result.created_at.strftime("%Y-%m-%d %I:%M %p") %></small>
+    </div>
+  <% end %>
+<% else %>
+  <p>No results yet. Click the button above to run your first check.</p>
+<% end %>
+
+<hr>
+
+<%= link_to "Back", pages_path %> |
+<%= link_to "Edit", edit_page_path(@page) %>
